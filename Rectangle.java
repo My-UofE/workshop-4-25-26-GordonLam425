@@ -11,27 +11,35 @@ public class Rectangle {
   public static final int NUMBER_OF_SIDES = 4;
 
   // main constructor
-  public Rectangle(double w, double h, double oX, double oY) {
-    width = w;
-    height = h;
-    originX = oX;
-    originY = oY;
+  public Rectangle(double width, double height, double originX, double originY) {
+    this.width = width;
+    this.height = height;
+    this.originX = originX;
+    this.originY = originY;
+    }
+
+  public Rectangle(double width, double height) {
+    this(width, height, 0, 0);
+  }
+
+  public Rectangle() {
+    this(1, 1);
   }
 
   // method: move the rectangle
   public void move(double dx, double dy) {
-	   originX += dx;
-	   originY += dy;
+    originX += dx;
+    originY += dy;
   }
 
   // method: compute the area of the rectangle
   public double getArea() {
     return width * height;
   }
-  
+    
   // method: compute the area of the rectangle
   public double getPerimeter() {
     return 2 * (width + height);
   }
-  
+    
 }
