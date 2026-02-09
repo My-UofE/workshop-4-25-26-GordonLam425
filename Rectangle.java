@@ -26,6 +26,65 @@ public class Rectangle {
     this(1, 1);
   }
 
+  public void scale(double scaleX, double scaleY) {
+   this.width = this.width * scaleX;
+    this.height = this.height * scaleY;
+  }
+
+  public void scale(double factor) {
+    this.width = this.width * factor;
+    this.height = this.height * factor;
+  }
+  
+  public boolean isOverlappedWith(Rectangle r) {
+    if (this.originX + this.width <= r.originX) {
+      return false;
+    }
+    if (r.originX + r.width <= this.originX) {
+      return false;
+    }
+    if (this.originY + this.height <= r.originY) {
+      return false;
+    }
+    if (r.originY + r.height <= this.originY) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public static boolean areOverlapping(Rectangle r1, Rectangle r2) {
+    if (r1.originX + r1.width <= r2.originX) {
+      return false;
+    }
+    if (r2.originX + r2.width <= r1.originX) {
+      return false;
+    }
+    if (r1.originY + r1.height <= r2.originY) {
+      return false;
+    }
+    if (r2.originY + r2.height <= r1.originY) {
+      return false;
+    }
+
+    return true;
+  }
+
+  public double calcRatio() {
+    return width / height;
+  }
+
+  public boolean isSquare() { 
+    double epsilon = 1e-10;  // very small tolerance
+    if (Math.abs(width - height) < epsilon) {
+        return true;  // width and height are close enough to be a square
+    } else {
+        return false; // not a square
+    }
+  }
+
+
+
   // method: move the rectangle
   public void move(double dx, double dy) {
     originX += dx;
