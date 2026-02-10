@@ -86,5 +86,21 @@ public class RectangleApp {
 		// change to negative width should be ignored
 		myRect7.setwidth(-10);  // prints warning, width does NOT change
 		System.out.println("Width: " + myRect7.getwidth() + ", Height: " + myRect7.getheight());
+
+		Rectangle r8 = new Rectangle(10.0,5.0);  // have change the name to r8 and r9 because the code cannot run
+		Rectangle r9 = new Rectangle(10.0,5.0); 
+		Rectangle r3 = r9;
+
+		System.out.println("Object reference tests:");
+		System.out.println("r1: " + r8);
+		System.out.println("r2: " + r9);
+		System.out.println("r3: " + r3);
+		
+		r8.scale(0.5);
+		System.out.println("r2 width: " + r9.getwidth());
+		System.out.println("r3 width: " + r3.getwidth());
+
+
+
 	}
 }
